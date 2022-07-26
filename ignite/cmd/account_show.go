@@ -3,7 +3,7 @@ package ignitecmd
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/ignite-hq/cli/ignite/pkg/cosmosaccount"
+	"github.com/ignite/cli/ignite/pkg/cosmosaccount"
 )
 
 func NewAccountShow() *cobra.Command {
@@ -30,7 +30,7 @@ func accountShowHandler(cmd *cobra.Command, args []string) error {
 
 	ca, err := cosmosaccount.New(
 		cosmosaccount.WithKeyringBackend(keyringBackend),
-		cosmosaccount.WithKeyringDir(keyringDir),
+		cosmosaccount.WithHome(keyringDir),
 	)
 	if err != nil {
 		return err

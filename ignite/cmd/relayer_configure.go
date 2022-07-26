@@ -5,12 +5,12 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 
-	"github.com/ignite-hq/cli/ignite/pkg/cliui"
-	"github.com/ignite-hq/cli/ignite/pkg/cliui/cliquiz"
-	"github.com/ignite-hq/cli/ignite/pkg/cliui/entrywriter"
-	"github.com/ignite-hq/cli/ignite/pkg/cosmosaccount"
-	"github.com/ignite-hq/cli/ignite/pkg/relayer"
-	relayerconfig "github.com/ignite-hq/cli/ignite/pkg/relayer/config"
+	"github.com/ignite/cli/ignite/pkg/cliui"
+	"github.com/ignite/cli/ignite/pkg/cliui/cliquiz"
+	"github.com/ignite/cli/ignite/pkg/cliui/entrywriter"
+	"github.com/ignite/cli/ignite/pkg/cosmosaccount"
+	"github.com/ignite/cli/ignite/pkg/relayer"
+	relayerconfig "github.com/ignite/cli/ignite/pkg/relayer/config"
 )
 
 const (
@@ -98,7 +98,7 @@ func relayerConfigureHandler(cmd *cobra.Command, args []string) (err error) {
 
 	ca, err := cosmosaccount.New(
 		cosmosaccount.WithKeyringBackend(getKeyringBackend(cmd)),
-		cosmosaccount.WithKeyringDir(getKeyringDir(cmd)),
+		cosmosaccount.WithHome(getKeyringDir(cmd)),
 	)
 	if err != nil {
 		return err

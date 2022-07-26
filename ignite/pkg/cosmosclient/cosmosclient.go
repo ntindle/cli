@@ -29,11 +29,12 @@ import (
 	staking "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/gogo/protobuf/proto"
 	prototypes "github.com/gogo/protobuf/types"
-	"github.com/ignite-hq/cli/ignite/pkg/cosmosaccount"
-	"github.com/ignite-hq/cli/ignite/pkg/cosmosfaucet"
 	"github.com/pkg/errors"
 	rpchttp "github.com/tendermint/tendermint/rpc/client/http"
 	ctypes "github.com/tendermint/tendermint/rpc/core/types"
+
+	"github.com/ignite/cli/ignite/pkg/cosmosaccount"
+	"github.com/ignite/cli/ignite/pkg/cosmosfaucet"
 )
 
 // FaucetTransferEnsureDuration is the duration that BroadcastTx will wait when a faucet transfer
@@ -209,7 +210,7 @@ func New(ctx context.Context, options ...Option) (Client, error) {
 	c.AccountRegistry, err = cosmosaccount.New(
 		cosmosaccount.WithKeyringServiceName(c.keyringServiceName),
 		cosmosaccount.WithKeyringBackend(c.keyringBackend),
-		cosmosaccount.WithKeyringDir(c.keyringDir),
+		cosmosaccount.WithHome(c.keyringDir),
 	)
 	if err != nil {
 		return Client{}, err

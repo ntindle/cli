@@ -1,5 +1,4 @@
 //go:build !relayer
-// +build !relayer
 
 package app_test
 
@@ -7,8 +6,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/ignite-hq/cli/ignite/pkg/cmdrunner/step"
-	envtest "github.com/ignite-hq/cli/integration"
+	"github.com/ignite/cli/ignite/pkg/cmdrunner/step"
+	envtest "github.com/ignite/cli/integration"
 )
 
 func TestCreateModuleWithIBC(t *testing.T) {

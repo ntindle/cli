@@ -1,13 +1,12 @@
 //go:build !relayer
-// +build !relayer
 
 package simulation_test
 
 import (
 	"testing"
 
-	"github.com/ignite-hq/cli/ignite/pkg/cmdrunner/step"
-	envtest "github.com/ignite-hq/cli/integration"
+	"github.com/ignite/cli/ignite/pkg/cmdrunner/step"
+	envtest "github.com/ignite/cli/integration"
 )
 
 func TestGenerateAnAppAndSimulate(t *testing.T) {

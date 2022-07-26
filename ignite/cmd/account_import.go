@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/go-bip39"
 	"github.com/spf13/cobra"
 
-	"github.com/ignite-hq/cli/ignite/pkg/cliui/cliquiz"
-	"github.com/ignite-hq/cli/ignite/pkg/cosmosaccount"
+	"github.com/ignite/cli/ignite/pkg/cliui/cliquiz"
+	"github.com/ignite/cli/ignite/pkg/cosmosaccount"
 )
 
 const flagSecret = "secret"
@@ -63,7 +63,7 @@ func accountImportHandler(cmd *cobra.Command, args []string) error {
 
 	ca, err := cosmosaccount.New(
 		cosmosaccount.WithKeyringBackend(keyringBackend),
-		cosmosaccount.WithKeyringDir(keyringDir),
+		cosmosaccount.WithHome(keyringDir),
 	)
 	if err != nil {
 		return err
